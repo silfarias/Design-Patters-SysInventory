@@ -1,21 +1,33 @@
-// Ejercicio 3: Patrón Observer para seguimiento de estado
+// Ejercicio 4: Patrón Adapter para cambiar la interfaz de inventarios viejos
+import { Inventario } from "./exercises/singleton";
 
-interface IObservador {
-    notificar(estado: string, equipo: string): void;
-}
 
-class Soporte implements IObservador {
+class InventarioViejo {
+    private items: string[] = [];
 
-    public notificar(estado: string, equipo: string): void {
-        console.log(`Soporte notificado: ${equipo} ha cambiado su estado a ${estado}.`);
+    agregarItem(item: string): void {
+        this.items.push(item)
+    }
+    listarItems(): string[] {
+        return this.items;
     }
 }
 
-class EquipoInf {
-    
-    private observadores: IObservador[] = [];
+class AdaptadorInventario {
 
-    public agregarObservador(observador: IObservador): void {
-        this.observadores.push(observador);
+    private inventarioViejo: InventarioViejo
+
+    constructor(inventarioViejo: InventarioViejo) {
+        this.inventarioViejo = inventarioViejo
     }
+
+    public agregarEquipo():{}
+    public listarEquipos():{}
+
 }
+
+// const inventarioViejo = new InventarioViejo();
+// const adaptador = new AdaptadorInventario(inventarioViejo);
+// adaptador.agregarEquipo("Servidor Dell", "Servidor", "disponible");
+// console.log(adaptador.listarEquipos());
+// [{ nombre: "Servidor Dell", tipo: "Servidor", estado: "disponible" }]

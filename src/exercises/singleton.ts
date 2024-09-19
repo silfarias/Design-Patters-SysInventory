@@ -8,7 +8,7 @@ type Equipo = {
 
 type Estado = 'Disponible' | 'No disponible' |'Mantenimiento';
 
-class Inventario {
+export class Inventario {
     private static instancia: Inventario;
     private inventario: Equipo[] = [];
 
