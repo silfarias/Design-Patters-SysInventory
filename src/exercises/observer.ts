@@ -4,7 +4,7 @@ interface IObservador {
     notificar(nombre: string, estado: string): void;
 }
 
-class Soporte implements IObservador {
+export class Soporte implements IObservador {
 
     constructor(){}
 
@@ -13,7 +13,7 @@ class Soporte implements IObservador {
     }
 }
 
-class EquipoInf {
+export class EquipoInf {
     private observadores: IObservador[] = [];
     private nombre: string;
     private tipo: string;
@@ -38,9 +38,3 @@ class EquipoInf {
         this.observadores.forEach(observador => observador.notificar(this.nombre, this.estado));
     }
 }
-
-const soporte = new Soporte();
-const equipo = new EquipoInf("Notebook HP", "Portátil", "disponible");
-equipo.agregarObservador(soporte);
-equipo.cambiarEstado("en reparación");
-// Soporte notificado: Notebook HP ha cambiado su estado a en reparación.

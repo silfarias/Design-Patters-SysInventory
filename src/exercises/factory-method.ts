@@ -50,7 +50,7 @@ class TipoServidor implements IEquipo {
     }
 }
 
-class EquipoFactory {
+export class EquipoFactory {
     public crearEquipo(tipo: string, nombre: string, ram: string, procesador: string) {
         switch (tipo) {
             case 'Notebook':
@@ -68,7 +68,3 @@ class EquipoFactory {
         }
     }
 }
-
-const factory = new EquipoFactory();
-const tipoNotebook = factory.crearEquipo("Notebook", "Dell XPS", "16GB", "i7");
-console.log(tipoNotebook.detalles());

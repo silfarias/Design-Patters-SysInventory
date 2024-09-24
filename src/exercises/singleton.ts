@@ -29,7 +29,3 @@ export class Inventario {
         return this.inventario;
     }
 };
-
-const inventario = Inventario.obtenerInstancia()
-inventario.agregarEquipo({ nombre: "Notebook HP", tipo: "Portatil", estado: "Disponible" });
-console.log(inventario.listarEquipos());
